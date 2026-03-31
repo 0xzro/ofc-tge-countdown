@@ -4,18 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>OFC TGE Countdown | Build by @AAYSDAO</title>
-    <meta name="title" content="$OFC TGE Countdown - Build by @AAYSDAO">
-    <meta name="description" content="Track the OneFootball Club TGE live on Base. April 9, 2026. Claim your .football ID now!">
-    
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="$OFC TGE Countdown - Build by @AAYSDAO">
-    <meta property="og:description" content="The clock is ticking! Join the @OneFootball community on @Base.">
-    <meta property="og:image" content="https://images.onefootball.com/icons/onefootball/128/en.png">
-
+    <title>OFC Hub | Build by @AAYSDAO</title>
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="$OFC TGE Countdown - Build by @AAYSDAO">
-    <meta name="twitter:description" content="Only days left until $OFC TGE on @Base. Track live! 🕒⚽️">
+    <meta name="twitter:description" content="Track the @OneFootball TGE live on @Base. April 9, 2026. 🕒⚽️">
     <meta name="twitter:image" content="https://images.onefootball.com/icons/onefootball/128/en.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -47,10 +39,13 @@
         <a id="tweet-intent" href="#" target="_blank" class="bg-blue-500 hover:bg-blue-400 text-white py-3 rounded-full font-bold text-sm text-center flex items-center justify-center gap-2">
             🚀 SHARE HYPE ON X
         </a>
+        <button onclick="copyLink()" class="text-white/40 text-[10px] uppercase tracking-widest hover:text-white transition-colors">
+            🔗 Copy App Link
+        </button>
     </div>
 
     <div class="mt-10 w-full max-w-md card p-6 rounded-3xl">
-        <h3 class="text-center text-[10px] font-bold mb-6 opacity-60 tracking-[0.2em] uppercase">Bullish $OFC? Follow the Squad</h3>
+        <h3 class="text-center text-xs font-bold mb-6 opacity-60 tracking-[0.2em] uppercase">Follow the Squad</h3>
         <div class="grid grid-cols-2 gap-3">
             <a href="https://x.com/intent/follow?screen_name=AAYSDAO" target="_blank" class="follow-btn p-3 rounded-xl text-[10px] font-bold text-center">@AAYSDAO</a>
             <a href="https://x.com/intent/follow?screen_name=OneFootball" target="_blank" class="follow-btn p-3 rounded-xl text-[10px] font-bold text-center">@OneFootball</a>
@@ -58,39 +53,41 @@
             <a href="https://x.com/intent/follow?screen_name=animocabrands" target="_blank" class="follow-btn p-3 rounded-xl text-[10px] font-bold text-center">@animocabrands</a>
             <a href="https://x.com/intent/follow?screen_name=FIFARivals" target="_blank" class="follow-btn p-3 rounded-xl text-[10px] font-bold text-center">@FIFARivals</a>
             <a href="https://x.com/intent/follow?screen_name=dnns_eth" target="_blank" class="follow-btn p-3 rounded-xl text-[10px] font-bold text-center">@dnns_eth</a>
-            <a href="https://x.com/intent/follow?screen_name=_viN040" target="_blank" class="follow-btn p-3 rounded-xl text-[10px] font-bold text-center">@_viN040</a>
         </div>
     </div>
 
     <div class="mt-8 w-full max-w-md px-4 pb-12">
-        <a href="https://play.google.com/store/apps/details?id=de.motain.iliga" target="_blank" class="block w-full bg-[#00FF00] text-black font-black py-4 rounded-2xl text-center hover:scale-[1.02] transition-transform uppercase text-sm shadow-[0_0_30px_rgba(0,255,0,0.1)]">
+        <a href="https://play.google.com/store/apps/details?id=de.motain.iliga" target="_blank" class="block w-full bg-[#00FF00] text-black font-black py-4 rounded-2xl text-center hover:scale-[1.02] transition-transform uppercase text-sm">
             📲 Get App & Claim .football ID
         </a>
     </div>
 
     <script>
-        // TARGET DATE: April 9, 2026
         const targetDate = new Date("April 9, 2026 00:00:00").getTime();
         
         function update() {
             const now = new Date().getTime();
             const dist = targetDate - now;
-            
             const d = Math.floor(dist / (1000 * 60 * 60 * 24));
-            const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((dist % (1000 * 60)) / 1000);
-
+            
             document.getElementById("days").innerText = d.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((dist % (1000 * 60)) / 1000).toString().padStart(2, '0');
 
-            // Set up Viral Tweet with handles and hashtags
-            const text = encodeURIComponent(`The $OFC clock is ticking! 🕒⚽️\n\nOnly ${d} days to @OneFootball TGE on @Base. Build by @AAYSDAO.\n\nTrack live:`);
-            const hashtags = "OFC,Base,AAYSDAO,OneFootball";
-            document.getElementById("tweet-intent").href = `https://x.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.href)}&hashtags=${hashtags}`;
+            // EXACT TWEET FORMAT AS REQUESTED
+            const text = encodeURIComponent(`$OFC clock is ticking! 🕒⚽️\nBuilt a TGE countdown for the @OneFootball community on @base.\n🗓️ TGE: April 9\n🛠️ By @AAYSDAO\nTrack & claim .football ID:\n`);
+            const hashtags = "OFC,Base,OneFootball,AAYSDAO";
+            const extraTags = encodeURIComponent(`\nLFG @animocabrands @FIFARivals @dnns_eth @_viN040 🚀`);
+            
+            document.getElementById("tweet-intent").href = `https://x.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.href)}${extraTags}&hashtags=${hashtags}`;
         }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href);
+            alert("Link copied to clipboard!");
+        }
+
         setInterval(update, 1000); update();
     </script>
 </body>
