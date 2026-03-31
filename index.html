@@ -9,134 +9,179 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-body { background:#050505; color:#fff; font-family: Inter, sans-serif; }
-.gradient-text {
-  background: linear-gradient(90deg,#00FF00,#008000);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+body {
+  background: radial-gradient(circle at top, #0a0a0a, #000);
+  color:#fff;
+  font-family: Inter, sans-serif;
 }
+
+.glow-bg {
+  position:fixed;
+  width:400px;
+  height:400px;
+  background:#00FF00;
+  filter:blur(150px);
+  opacity:0.15;
+  top:-100px;
+  left:-100px;
+  animation: float 6s infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translate(0,0);}
+  100% { transform: translate(80px,60px);}
+}
+
 .card {
   background: rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
 }
-.done { background:#00FF00 !important; color:#000 !important; }
+
+.task {
+  padding:14px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:bold;
+  background: linear-gradient(145deg,#111,#1a1a1a);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.25s;
+}
+
+.task:hover {
+  transform:translateY(-4px) scale(1.05);
+  box-shadow:0 0 25px rgba(0,255,0,0.4);
+}
+
+.done {
+  background: linear-gradient(90deg,#00FF00,#00cc00);
+  color:#000;
+  box-shadow:0 0 25px #00FF00;
+}
+
+.claim-active {
+  background:#00FF00;
+  color:#000;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%{transform:scale(1)}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1)}
+}
 </style>
 </head>
 
 <body class="flex flex-col items-center p-4">
 
+<div class="glow-bg"></div>
+
 <!-- HEADER -->
 <div class="text-center mt-6">
-  <p class="text-[#00FF00] text-xs uppercase tracking-widest">Build by @AAYSDAO</p>
-  <h1 class="text-4xl md:text-6xl font-black gradient-text mt-2">$OFC TGE</h1>
+  <p class="text-[#00FF00] text-xs uppercase tracking-widest">AAYSDAO LAB</p>
+  <h1 class="text-5xl font-black text-[#00FF00]">$OFC TGE</h1>
+  <p class="text-white/40 text-xs mt-2">Early Access Mission</p>
 </div>
 
 <!-- COUNTDOWN -->
-<div class="grid grid-cols-4 gap-3 mt-8 w-full max-w-xl">
-  <div class="card p-3 text-center rounded-xl"><span id="d">00</span><p>Days</p></div>
-  <div class="card p-3 text-center rounded-xl"><span id="h">00</span><p>Hrs</p></div>
-  <div class="card p-3 text-center rounded-xl"><span id="m">00</span><p>Min</p></div>
-  <div class="card p-3 text-center rounded-xl"><span id="s">00</span><p>Sec</p></div>
+<div class="grid grid-cols-4 gap-3 mt-8 w-full max-w-xl text-center">
+  <div class="card p-4 rounded-xl"><span id="d"></span><p class="text-xs">Days</p></div>
+  <div class="card p-4 rounded-xl"><span id="h"></span><p class="text-xs">Hrs</p></div>
+  <div class="card p-4 rounded-xl"><span id="m"></span><p class="text-xs">Min</p></div>
+  <div class="card p-4 rounded-xl"><span id="s"></span><p class="text-xs">Sec</p></div>
 </div>
 
 <!-- ACTION -->
-<div class="mt-6 flex flex-col gap-3 w-full max-w-xs">
-  <a id="tweet" target="_blank"
-     class="bg-blue-500 text-center py-3 rounded-full font-bold">
-     🚀 Share on X
-  </a>
-
-  <button onclick="copyLink()" class="text-xs opacity-50">
-    🔗 Copy Link
-  </button>
+<div class="mt-6 w-full max-w-xs flex flex-col gap-3">
+<a id="tweet" target="_blank" class="bg-blue-500 py-3 rounded-full text-center font-bold">
+🚀 Share on X
+</a>
 </div>
 
 <!-- TASKS -->
 <div class="mt-8 w-full max-w-md card p-5 rounded-2xl">
-  <h3 class="text-center text-xs mb-4 uppercase opacity-60">Complete Tasks</h3>
+<h3 class="text-center text-xs mb-4 opacity-60 uppercase">Complete Missions</h3>
 
-  <div class="grid grid-cols-2 gap-3 text-xs">
-    
-    <button onclick="done(this,'a')" class="task p-3 border rounded-lg">AAYSDAO</button>
-    <button onclick="done(this,'b')" class="task p-3 border rounded-lg">OneFootball</button>
-    <button onclick="done(this,'c')" class="task p-3 border rounded-lg">Base</button>
-    <button onclick="done(this,'d')" class="task p-3 border rounded-lg">Animoca</button>
-    <button onclick="done(this,'e')" class="task p-3 border rounded-lg">FIFARivals</button>
-    <button onclick="done(this,'f')" class="task p-3 border rounded-lg">dnns</button>
-    <button onclick="done(this,'g')" class="task p-3 border rounded-lg">viN040</button>
+<div class="grid grid-cols-2 gap-3">
 
-  </div>
+<a href="https://x.com/intent/follow?screen_name=AAYSDAO" target="_blank" onclick="complete('a',this)" class="task">AAYSDAO</a>
+<a href="https://x.com/intent/follow?screen_name=OneFootball" target="_blank" onclick="complete('b',this)" class="task">OneFootball</a>
+<a href="https://x.com/intent/follow?screen_name=base" target="_blank" onclick="complete('c',this)" class="task">Base</a>
+<a href="https://x.com/intent/follow?screen_name=animocabrands" target="_blank" onclick="complete('d',this)" class="task">Animoca</a>
+<a href="https://x.com/intent/follow?screen_name=FIFARivals" target="_blank" onclick="complete('e',this)" class="task">FIFARivals</a>
+<a href="https://x.com/intent/follow?screen_name=dnns_eth" target="_blank" onclick="complete('f',this)" class="task">dnns</a>
+<a href="https://x.com/intent/follow?screen_name=_viN040" target="_blank" onclick="complete('g',this)" class="task">viN040</a>
 
-  <!-- PROGRESS -->
-  <div class="mt-4">
-    <div class="w-full bg-white/10 h-2 rounded-full">
-      <div id="bar" class="bg-[#00FF00] h-2 rounded-full w-0"></div>
-    </div>
-    <p id="progress" class="text-center text-[10px] mt-1 opacity-50">0 / 7 completed</p>
-  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="mt-4">
+<div class="w-full bg-white/10 h-2 rounded-full">
+<div id="bar" class="bg-[#00FF00] h-2 rounded-full w-0"></div>
+</div>
+<p id="txt" class="text-center text-xs mt-1 opacity-40">0 / 7 completed</p>
+</div>
+
 </div>
 
 <!-- CLAIM -->
 <div class="mt-6 w-full max-w-md">
-  <a id="claim"
-     href="#"
-     class="block text-center py-4 bg-gray-700 rounded-xl font-bold opacity-50 pointer-events-none">
-     🔒 Complete Tasks to Unlock
-  </a>
+<a id="claim" class="block text-center py-4 bg-gray-700 rounded-xl opacity-50">
+🔒 Complete Tasks
+</a>
 </div>
 
 <script>
 
 // COUNTDOWN
 const target = new Date("April 9, 2026 00:00:00").getTime();
-
 setInterval(()=>{
-  let now = new Date().getTime();
-  let dist = target - now;
-
-  d.innerText = Math.floor(dist/86400000);
-  h.innerText = Math.floor((dist%86400000)/3600000);
-  m.innerText = Math.floor((dist%3600000)/60000);
-  s.innerText = Math.floor((dist%60000)/1000);
+let now=new Date().getTime();
+let dist=target-now;
+d.innerText=Math.floor(dist/86400000);
+h.innerText=Math.floor((dist%86400000)/3600000);
+m.innerText=Math.floor((dist%3600000)/60000);
+s.innerText=Math.floor((dist%60000)/1000);
 },1000);
 
-// COPY
-function copyLink(){
-  navigator.clipboard.writeText(location.href);
-  alert("Copied!");
-}
-
-// TASK TRACKER
+// STORAGE
+let tasks = JSON.parse(localStorage.getItem("tasks")) || {};
 let total = 7;
-let doneCount = 0;
 
-function done(el,id){
-  if(el.classList.contains("done")) return;
+function complete(id,el){
+if(tasks[id]) return;
 
-  el.classList.add("done");
-  doneCount++;
+tasks[id]=true;
+localStorage.setItem("tasks",JSON.stringify(tasks));
 
-  updateProgress();
+el.classList.add("done");
+update();
 }
 
-// UPDATE PROGRESS
-function updateProgress(){
-  let percent = (doneCount/total)*100;
-  bar.style.width = percent+"%";
-  progress.innerText = doneCount+" / "+total+" completed";
+// LOAD STATE
+document.querySelectorAll(".task").forEach((el,i)=>{
+let id=String.fromCharCode(97+i);
+if(tasks[id]) el.classList.add("done");
+});
 
-  if(doneCount === total){
-    claim.classList.remove("opacity-50","pointer-events-none","bg-gray-700");
-    claim.classList.add("bg-[#00FF00]","text-black");
-    claim.innerText = "🎉 CLAIM .FOOTBALL ID";
-    claim.href = "https://play.google.com/store/apps/details?id=de.motain.iliga";
-  }
+function update(){
+let done = Object.keys(tasks).length;
+bar.style.width=(done/total)*100+"%";
+txt.innerText=done+" / "+total+" completed";
+
+if(done===total){
+claim.classList.add("claim-active");
+claim.innerText="🎉 CLAIM .FOOTBALL ID";
+claim.href="https://play.google.com/store/apps/details?id=de.motain.iliga";
 }
+}
+
+update();
 
 // TWEET
-tweet.href = `https://x.com/intent/tweet?text=${encodeURIComponent(
-"$OFC countdown is LIVE 🚀 Built by @AAYSDAO\nJoin now ⚽️"
+tweet.href=`https://x.com/intent/tweet?text=${encodeURIComponent(
+"$OFC Early Mission 🚀 Complete tasks & join before TGE ⚽️"
 )}&url=${encodeURIComponent(location.href)}`;
 
 </script>
