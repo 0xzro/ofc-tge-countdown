@@ -3,96 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFC Hub | By AAYSDAO</title>
+    <title>OFC Hub | Build by @AAYSDAO</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; }
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; scroll-behavior: smooth; }
         .gradient-text { background: linear-gradient(90deg, #00FF00, #008000); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); }
-        .btn-glow:hover { box-shadow: 0 0 15px rgba(0, 255, 0, 0.4); }
+        .card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(12px); }
+        .follow-btn { transition: all 0.2s ease; border: 1px solid rgba(255,255,255,0.1); }
+        .follow-btn:hover { background: #fff; color: #000; transform: translateY(-2px); }
     </style>
 </head>
-<body class="min-h-screen p-6 flex flex-col items-center">
+<body class="min-h-screen p-4 flex flex-col items-center">
 
-    <div class="text-center mt-10">
-        <h2 class="text-[#00FF00] tracking-widest uppercase font-bold text-sm">Build by @AAYSDAO</h2>
-        <h1 class="text-5xl md:text-7xl font-black gradient-text uppercase mt-2">$OFC TGE COUNTDOWN</h1>
-        <p class="text-white/40 mt-2">m10.football verified mission</p>
+    <div class="text-center mt-8">
+        <p class="text-[#00FF00] font-bold text-xs tracking-widest uppercase mb-1">Build by @AAYSDAO</p>
+        <h1 class="text-4xl md:text-6xl font-black gradient-text uppercase">$OFC TGE COUNTDOWN</h1>
+        <p class="text-white/30 text-xs mt-2 uppercase tracking-widest">m10.football verified mission</p>
     </div>
 
-    <div class="grid grid-cols-4 gap-4 mt-12 w-full max-w-2xl">
-        <div class="card p-6 rounded-2xl text-center">
-            <span id="days" class="text-4xl font-black text-[#00FF00]">00</span>
-            <p class="text-[10px] opacity-50 uppercase tracking-tighter">Days</p>
-        </div>
-        <div class="card p-6 rounded-2xl text-center">
-            <span id="hours" class="text-4xl font-black">00</span>
-            <p class="text-[10px] opacity-50 uppercase tracking-tighter">Hours</p>
-        </div>
-        <div class="card p-6 rounded-2xl text-center">
-            <span id="minutes" class="text-4xl font-black">00</span>
-            <p class="text-[10px] opacity-50 uppercase tracking-tighter">Mins</p>
-        </div>
-        <div class="card p-6 rounded-2xl text-center">
-            <span id="seconds" class="text-4xl font-black text-red-500">00</span>
-            <p class="text-[10px] opacity-50 uppercase tracking-tighter">Secs</p>
-        </div>
+    <div class="grid grid-cols-4 gap-3 mt-10 w-full max-w-xl">
+        <div class="card p-4 rounded-xl text-center"><span id="days" class="text-3xl font-black text-[#00FF00]">00</span><p class="text-[8px] opacity-40 uppercase">Days</p></div>
+        <div class="card p-4 rounded-xl text-center"><span id="hours" class="text-3xl font-black">00</span><p class="text-[8px] opacity-40 uppercase">Hours</p></div>
+        <div class="card p-4 rounded-xl text-center"><span id="minutes" class="text-3xl font-black">00</span><p class="text-[8px] opacity-40 uppercase">Mins</p></div>
+        <div class="card p-4 rounded-xl text-center"><span id="seconds" class="text-3xl font-black text-red-500">00</span><p class="text-[8px] opacity-40 uppercase">Secs</p></div>
     </div>
 
-    <div class="mt-8">
-        <a id="share-btn" href="#" target="_blank" class="flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-400 text-white font-bold rounded-full transition-all btn-glow">
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-            TWEET YOUR HYPE
+    <div class="mt-8 flex gap-3">
+        <a id="tweet-intent" href="#" target="_blank" class="bg-blue-500 hover:bg-blue-400 text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2">
+            🚀 SHARE HYPE ON X
         </a>
     </div>
 
-    <div class="mt-10 w-full max-w-md space-y-4">
-        <a href="https://play.google.com/store/apps/details?id=de.motain.iliga" target="_blank" class="block w-full bg-white text-black font-bold py-4 rounded-xl text-center hover:bg-[#00FF00] transition-colors">
-            📲 DOWNLOAD APP & CLAIM YOUR .FOOTBALL ID
-        </a>
+    <div class="mt-10 w-full max-w-md card p-6 rounded-3xl">
+        <h3 class="text-center text-xs font-bold mb-6 opacity-60 tracking-[0.2em] uppercase">Bullish $OFC? Follow the Squad</h3>
+        <div class="grid grid-cols-2 gap-3">
+            <a href="https://x.com/intent/follow?screen_name=AAYSDAO" target="_blank" class="follow-btn p-3 rounded-xl text-xs font-bold text-center">@AAYSDAO</a>
+            <a href="https://x.com/intent/follow?screen_name=OneFootball" target="_blank" class="follow-btn p-3 rounded-xl text-xs font-bold text-center">@OneFootball</a>
+            <a href="https://x.com/intent/follow?screen_name=base" target="_blank" class="follow-btn p-3 rounded-xl text-xs font-bold text-center">@Base</a>
+            <a href="https://x.com/intent/follow?screen_name=animocabrands" target="_blank" class="follow-btn p-3 rounded-xl text-xs font-bold text-center">@animocabrands</a>
+            <a href="https://x.com/intent/follow?screen_name=dnns_eth" target="_blank" class="follow-btn p-3 rounded-xl text-xs font-bold text-center">@dnns_eth</a>
+            <a href="https://x.com/intent/follow?screen_name=_viN040" target="_blank" class="follow-btn p-3 rounded-xl text-xs font-bold text-center">@_viN040</a>
+            <a href="https://x.com/intent/follow?screen_name=FIFARivals" target="_blank" class="follow-btn p-3 rounded-xl text-xs font-bold text-center">@FIFARivals</a>
+        </div>
     </div>
 
-    <div class="mt-12 w-full max-w-md card p-6 rounded-3xl">
-        <h3 class="text-center font-bold mb-4 border-b border-white/10 pb-2 uppercase tracking-widest text-xs">Bullish $OFC? Follow the Squad</h3>
-        <div class="grid grid-cols-2 gap-2 text-sm text-center">
-            <div class="p-2 border border-white/5 rounded-lg opacity-80">@OneFootball</div>
-            <div class="p-2 border border-white/5 rounded-lg opacity-80">@animocabrands</div>
-            <div class="p-2 border border-white/5 rounded-lg opacity-80">@chokmahxbt</div>
-            <div class="p-2 border border-white/5 rounded-lg opacity-80">@_viN040</div>
-            <div class="p-2 border border-white/5 rounded-lg opacity-80">@dnns_eth</div>
-            <div class="p-2 border border-white/5 rounded-lg opacity-80">@AirdropwithSafu</div>
-        </div>
+    <div class="mt-8 w-full max-w-md">
+        <a href="https://play.google.com/store/apps/details?id=de.motain.iliga" target="_blank" class="block w-full bg-[#00FF00] text-black font-black py-4 rounded-2xl text-center hover:scale-[1.02] transition-transform shadow-[0_0_20px_rgba(0,255,0,0.2)] uppercase text-sm">
+            📲 Get App & Claim .football ID
+        </a>
     </div>
 
     <script>
-        // COUNTDOWN LOGIC
         const targetDate = new Date("April 9, 2026 00:00:00").getTime();
         
-        function updateTimer() {
+        function update() {
             const now = new Date().getTime();
-            const distance = targetDate - now;
+            const dist = targetDate - now;
+            const d = Math.floor(dist / (1000 * 60 * 60 * 24));
             
-            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const s = Math.floor((distance % (1000 * 60)) / 1000);
-
             document.getElementById("days").innerText = d.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((dist % (1000 * 60)) / 1000).toString().padStart(2, '0');
 
-            // UPDATE TWEET INTENT DYNAMICALLY
-            const tweetText = encodeURIComponent(`The $OFC clock is ticking! 🕒⚽️\n\nOnly ${d} days until the @OneFootball Club TGE on @Base. Built by @AAYSDAO.\n\nTrack it live here:`);
-            const tweetUrl = encodeURIComponent(window.location.href);
+            // Set up Tweet Intent with usernames & hashtags
+            const text = encodeURIComponent(`The $OFC TGE is just ${d} days away! 🕒⚽️\n\nI'm bullish with the squad on @Base. Built by @AAYSDAO.\n\nTrack & Follow here:`);
             const hashtags = "OFC,Base,OneFootball,AAYSDAO";
-            
-            document.getElementById("share-btn").href = `https://twitter.com/intent/tweet?text=${tweetText}&url=${tweetUrl}&hashtags=${hashtags}`;
+            document.getElementById("tweet-intent").href = `https://x.com/intent/tweet?text=${text}&url=${encodeURIComponent(window.location.href)}&hashtags=${hashtags}`;
         }
-
-        setInterval(updateTimer, 1000);
-        updateTimer(); // Initial call
+        setInterval(update, 1000); update();
     </script>
 </body>
 </html>
