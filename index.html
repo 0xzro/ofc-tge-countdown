@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFC | TGE Countdown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;900&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #050505; color: #fff; }
+        .glow { text-shadow: 0 0 20px #00FF00; }
+        .gradient-text { background: linear-gradient(90deg, #00FF00, #008000); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen overflow-hidden">
+
+    <div class="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#00FF00] rounded-full blur-[150px]"></div>
+    </div>
+
+    <div class="relative z-10 text-center px-4">
+        <h2 class="text-sm tracking-[0.3em] uppercase opacity-60 mb-2 font-semibold">OneFootball Club</h2>
+        <h1 class="text-6xl md:text-8xl font-black mb-8 gradient-text uppercase">The TGE is Coming</h1>
+
+        <div class="grid grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+                <span id="days" class="text-4xl md:text-6xl font-black block text-[#00FF00]">00</span>
+                <span class="text-[10px] uppercase tracking-widest opacity-50">Days</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+                <span id="hours" class="text-4xl md:text-6xl font-black block">00</span>
+                <span class="text-[10px] uppercase tracking-widest opacity-50">Hours</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+                <span id="minutes" class="text-4xl md:text-6xl font-black block">00</span>
+                <span class="text-[10px] uppercase tracking-widest opacity-50">Mins</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-4 rounded-2xl backdrop-blur-sm">
+                <span id="seconds" class="text-4xl md:text-6xl font-black block text-red-500">00</span>
+                <span class="text-[10px] uppercase tracking-widest opacity-50">Secs</span>
+            </div>
+        </div>
+
+        <p class="mt-12 text-white/40 italic">Scheduled for April 9th • Powered by Base & Animoca Brands</p>
+
+        <button class="mt-8 px-8 py-3 bg-[#00FF00] text-black font-bold rounded-full hover:scale-105 transition-transform">
+            CLAIM YOUR .FOOTBALL ID
+        </button>
+    </div>
+
+    <script>
+        const targetDate = new Date("April 9, 2026 00:00:00").getTime();
+
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = d.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector(".gradient-text").innerText = "TGE LIVE NOW";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
