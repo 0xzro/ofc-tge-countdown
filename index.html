@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OFC Hub | Powered by AAYSDAO</title>
+    <title>OFC Hub | m10.football Verified</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -89,7 +89,7 @@
     <div class="mt-12 mb-10 text-center">
         <div class="flex items-center justify-center gap-2 mb-4">
             <div class="status-dot"></div>
-            <span class="text-[10px] tracking-[0.4em] uppercase font-bold text-white/50">Terminal v3.0</span>
+            <span class="text-[10px] tracking-[0.4em] uppercase font-bold text-white/50 text-xs">m10.football verified mission</span>
         </div>
         <h1 class="text-6xl font-bold tracking-tighter italic uppercase">
             $OFC <span class="text-[#00FF00]">TGE</span>
@@ -118,8 +118,8 @@
 
     <div class="w-full max-w-md main-card p-8">
         <div class="flex justify-between items-center mb-8">
-            <h2 class="font-bold tracking-tight text-lg">MISSIONS</h2>
-            <span id="progress-tag" class="text-[10px] py-1 px-3 border border-white/10 rounded-full text-white/40">0/11 READY</span>
+            <h2 class="font-bold tracking-tight text-lg uppercase">Missions</h2>
+            <span id="progress-tag" class="text-[10px] py-1 px-3 border border-white/10 rounded-full text-white/40 italic uppercase">0/12 READY</span>
         </div>
 
         <div id="mission-list" class="space-y-3">
@@ -156,10 +156,11 @@
             { id: 4, name: 'Follow LiamcKerr', handle: 'LiamcKerr' },
             { id: 5, name: 'Follow djtsoi', handle: 'djtsoi' },
             { id: 6, name: 'Follow chokmahxbt', handle: 'chokmahxbt' },
-            { id: 7, name: 'Follow OneFootball', handle: 'OneFootball' },
-            { id: 8, name: 'Follow Base', handle: 'base' },
-            { id: 9, name: 'Follow Animoca Brands', handle: 'animocabrands' },
-            { id: 10, name: 'Follow FIFA Rivals', handle: 'FIFARivals' }
+            { id: 7, name: 'Follow m10.football', handle: 'm10_football' },
+            { id: 8, name: 'Follow OneFootball', handle: 'OneFootball' },
+            { id: 9, name: 'Follow Base', handle: 'base' },
+            { id: 10, name: 'Follow Animoca Brands', handle: 'animocabrands' },
+            { id: 11, name: 'Follow FIFA Rivals', handle: 'FIFARivals' }
         ];
 
         let completed = JSON.parse(localStorage.getItem('aays_v3_state')) || [];
@@ -193,12 +194,12 @@
 
         window.doTweet = (id) => {
             const tweetText = encodeURIComponent(
-                "⚽️ You’re still early… but not for long.\n\n" +
-                "$OFC TGE is getting closer every second 👀🔥\n\n" +
-                "Track it LIVE 👇\n" +
-                "https://ofc-tge-countdown.vercel.app/\n\n" +
-                "Lock in with @ofc_the_club now.\n\n" +
-                "#OFC #TGE"
+                "The $OFC clock is ticking. ⌛️⚽️\n\n" +
+                "Built the terminal to track the movement. Clear missions, claim status, and join the squad before the whistle. 🧱⚡️\n\n" +
+                "TRACK LIVE:\n" +
+                "🔗 https://ofc-tge-countdown.vercel.app/\n\n" +
+                "@ofc_the_club @dnns_eth @_viN040 @LiamcKerr @djtsoi @chokmahxbt\n\n" +
+                "#OFC $OFC #SuperFan"
             );
             window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, '_blank');
             markComplete(id);
