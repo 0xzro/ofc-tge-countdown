@@ -73,6 +73,14 @@
             0%, 100% { opacity: 0.3; }
             50% { opacity: 1; }
         }
+
+        .footer-link {
+            transition: opacity 0.2s;
+        }
+
+        .footer-link:hover {
+            opacity: 0.7;
+        }
     </style>
 </head>
 
@@ -86,7 +94,7 @@
         <h1 class="text-6xl font-bold tracking-tighter italic uppercase">
             $OFC <span class="text-[#00FF00]">TGE</span>
         </h1>
-        <p class="text-white/40 mt-2 text-sm tracking-widest uppercase">Verified by @AAYSDAO</p>
+        <p class="text-white/40 mt-2 text-sm tracking-widest uppercase">Build by @AAYSDAO</p>
     </div>
 
     <div class="flex gap-6 mb-12 tabular-nums">
@@ -130,14 +138,16 @@
         </a>
     </div>
 
-    <div class="mt-auto py-10">
-        <p class="text-[11px] font-bold tracking-[0.5em] text-[#00FF00]">@AAYSDAO</p>
+    <div class="mt-auto py-10 text-center">
+        <a href="https://x.com/intent/follow?screen_name=AAYSDAO" target="_blank" class="footer-link flex flex-col items-center gap-2">
+            <i data-lucide="twitter" class="w-5 h-5 text-[#00FF00]"></i>
+            <p class="text-[11px] font-bold tracking-[0.5em] text-[#00FF00]">@AAYSDAO</p>
+        </a>
     </div>
 
     <script>
         const TARGET_DATE = new Date("April 9, 2026 00:00:00").getTime();
         
-        // Finalized Mission List in exact requested order
         const MISSIONS = [
             { id: 0, name: 'Tweet Your Hype', type: 'tweet' },
             { id: 1, name: 'Follow OFC', handle: 'ofc_the_club' },
@@ -182,8 +192,15 @@
         };
 
         window.doTweet = (id) => {
-            const text = encodeURIComponent("7 DAYS to TGE! 💥\n\nThe squad is ready. The community is built. It's time to show who believes in the vision.\n\n⚽️ Let's GO! @ofc_the_club @_viN040 @dnns_eth @LiamcKerr @djtsoi @chokmahxbt\n\n#OFC $OFC");
-            window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
+            const tweetText = encodeURIComponent(
+                "⚽️ You’re still early… but not for long.\n\n" +
+                "$OFC TGE is getting closer every second 👀🔥\n\n" +
+                "Track it LIVE 👇\n" +
+                "https://ofc-tge-countdown.vercel.app/\n\n" +
+                "Lock in with @ofc_the_club now.\n\n" +
+                "#OFC #TGE"
+            );
+            window.open(`https://twitter.com/intent/tweet?text=${tweetText}`, '_blank');
             markComplete(id);
         };
 
@@ -213,11 +230,9 @@
             }
         }
 
-        // Countdown logic with live seconds
         setInterval(() => {
             const now = new Date().getTime();
             const diff = TARGET_DATE - now;
-            
             if(diff > 0) {
                 document.getElementById('d').innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
                 document.getElementById('h').innerText = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
